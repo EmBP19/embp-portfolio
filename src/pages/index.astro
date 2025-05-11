@@ -4,9 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emmanuel Palacios | Portfolio</title>
     <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <main>
+      <button id="theme-toggle">🌙 Toggle Dark Mode</button>
       <section class="hero">
         <h1>Emmanuel Palacios</h1>
         <p>Software Developer | Tech Enthusiast</p>
@@ -19,7 +21,7 @@
 
       <section id="about">
         <h2>About Me</h2>
-        <p>I’m a systems engineer passionate about building useful, efficient, and user-friendly software. Currently exploring web technologies and WMS solutions.</p>
+        <p>I’m a software engineer passionate about building useful, efficient, and user-friendly software. Currently working as a WMS solution consultant.</p>
       </section>
 
       <section id="projects">
@@ -38,9 +40,22 @@
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:contact@embp.dev">contact@embp.dev</a></p>
-        <p>GitHub: <a href="https://github.com/YOUR_USERNAME">@YOUR_USERNAME</a></p>
+        <p>Email: <a href="mailto:emmanuelbpal@gmail.com">emmanuelbpal@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/EmBP19">EmBP19</a></p>
       </section>
     </main>
+    <script>
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+  });
+</script>
   </body>
 </html>
