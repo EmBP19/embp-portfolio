@@ -2,47 +2,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emmanuel Palacios | Portfolio</title>
+    <title>Emmanuel Bautista Palacios | Portfolio</title>
     <link rel="stylesheet" href="/styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   </head>
+
+  <!-- Navigation script -->
+  <script>
+  const buttons = document.querySelectorAll('[data-section]');
+  const sections = document.querySelectorAll('.section-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.section;
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection.classList.contains('active')) {
+        // Already open → hide it
+        targetSection.classList.remove('active');
+      } else {
+        // Hide all first
+        sections.forEach(sec => sec.classList.remove('active'));
+        // Then show selected one
+        targetSection.classList.add('active');
+      }
+    });
+  });
+</script>
+
+
   <body>
     <main>
       <button id="theme-toggle">🌙 Toggle Dark Mode</button>
       <section class="hero">
-        <h1>Emmanuel Palacios</h1>
-        <p>Software Developer | Tech Enthusiast</p>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <h1>Emmanuel Bautista Palacios</h1>
+        <p>Software Engineer | Tech Enthusiast</p>
+       <nav class="section-nav">
+  <button data-section="about">About</button>
+  <button data-section="projects">Projects</button>
+  <button data-section="contact">Contact</button>
+</nav>
       </section>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>I’m a software engineer passionate about building useful, efficient, and user-friendly software. Currently working as a WMS solution consultant.</p>
-      </section>
+  
+      <section id="about" class="section-card hidden">
+  <!-- About Section -->
+        <h2 class="about-heading">About Me</h2>
+        <img src="/profile_picture.jpg" alt="Photo of Emmanuel" class="profile-pic centered" />
 
-      <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-          <li>
-            <strong>Inventory Reconciliation Tool</strong><br />
-            SQL-based automation for BlueYonder WMS.
-          </li>
-          <li>
-            <strong>Label Generator CLI</strong><br />
-            Python CLI tool to auto-generate labels for warehouse tasks.
-          </li>
-        </ul>
-      </section>
+        <div class="about-container">
+        
+    <div class="about-text">
+     <p>
+    Hey, I’m Emmanuel — a systems engineer who’s always been drawn to building things that are useful, simple, and just work.
+    I’ve spent the last few years working in tech consulting, mostly helping businesses run smoother with tools like BlueYonder WMS.
+    Somewhere along the way, I got hooked on front-end development and started creating clean, responsive websites too.
+  </p>
+  <p>
+    I enjoy figuring out how things fit together — whether that’s a supply chain system or a personal project I’m coding late at night.
+    I like working on ideas that solve real problems and make life a little easier (or at least more organized).
+  </p>
+  <p>
+    Outside of work, I’m usually gaming, learning something new, or thinking about the next thing I want to build.
+  </p>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:emmanuelbpal@gmail.com">emmanuelbpal@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/EmBP19">EmBP19</a></p>
-      </section>
+   <h3>Skills & Tools</h3>
+  <ul class="skills-grid">
+    <li>SQL</li>
+    <li>Python</li>
+    <li>JavaScript</li>
+    <li>Node.js</li>
+    <li>Astro</li>
+    <li>HTML & CSS</li>
+    <li>Git & GitHub</li>
+    <li>Postman</li>
+    <li>Jira</li>
+  </ul>
+   <h3>Languages</h3>
+   <ul class="skills-grid">
+    <li>Spanish</li>
+    <li>C1 English</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+ 
+
+<!-- Proejct Section -->
+
+      <section id="projects" class="section-card hidden">
+  <h2>Projects</h2>
+
+  <div class="project-card">
+    <h3>Sales Forecasting with Machine Learning</h3>
+    <p class="project-duration">Aug 2023 – Nov 2023</p>
+    <p>
+      Built a time series forecasting model using <strong>XGBoost</strong> to predict sales trends for SMBs. Cleaned and engineered features from raw data, optimized model accuracy using metrics like <strong>MSE</strong> and <strong>MAPE</strong>, and handled real-world data challenges like outliers and variability.
+    </p>
+    <p>
+      Designed a dashboard to visualize forecasts and support marketing/sales strategy decisions in dynamic market environments.
+    </p>
+
+
+    <details class="pdf-toggle">
+  <summary>📄 Preview Dissertation</summary>
+  <iframe src="/dissertation.pdf" width="100%" height="600px" style="margin-top: 1rem; border: 1px solid #ccc;"></iframe>
+</details>
+
+  </div>
+
+  <div class="project-card">
+  <h3>Inventory Management Web Application</h3>
+  <p class="project-duration">Jan 2022 – May 2022</p>
+  <p>
+    Co-developed a web-based inventory management system as part of a cross-functional capstone team. The project followed the <strong>PMBOK</strong> methodology and applied <strong>Agile principles</strong> to streamline development and delivery.
+  </p>
+  <p>
+    My role focused on requirements gathering, stakeholder communication, and scope/time/risk management — ensuring the project was completed on time, within budget, and aligned with business needs.
+  </p>
+  <p>
+    Note: this application was delivered privately for a client, so full access is restricted. For an overview of the process and screenshots, feel free to <a href="mailto:contact@embp.dev">contact me</a>.
+  </p>
+  <a href="https://casa-mosaico.web.app/" target="_blank" class="project-link">Visit Login Page ↗</a>
+</div>
+
+</section>
+
+<!-- Contact Section -->
+      <section id="contact" class="section-card hidden">
+  <h2>Contact</h2>
+  <p>You can reach out through the form below, or connect with me directly. I’m open to work, collaboration, or a good tech chat!</p>
+
+  <ul class="contact-list">
+    <li>📧 <a href="mailto:emmanuelbpal@gmail.com">emmanuelbpal@gmail.com</a></li>
+    <li>💼 <a href="https://www.linkedin.com/in/emmanuel-bp/" target="_blank">LinkedIn</a></li>
+    <li>💻 <a href="https://github.com/EmBP19" target="_blank">GitHub: EmBP19</a></li>
+  </ul>
+
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
     </main>
     <script>
   const toggle = document.getElementById('theme-toggle');
