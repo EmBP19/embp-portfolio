@@ -319,10 +319,4 @@ body.dark textarea {
 
 
 
-@media (max-width: 600px) {
-  .section-card {
-    overflow-y: auto;
-    max-height: 90vh;
-  }
-}
 
